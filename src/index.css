@@ -1,0 +1,269 @@
+/* ================================================================
+   HpsSeaFoods – Global CSS Design System
+   Ocean-inspired. Minimal. Premium.
+   ================================================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;600;700&display=swap');
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  /* Brand palette – deep ocean teal + warm cream accent */
+  --clr-primary:       #0a5f6e;   /* deep teal */
+  --clr-primary-dark:  #074452;
+  --clr-primary-light: #0f8099;
+  --clr-accent:        #e8a33a;   /* warm golden amber */
+  --clr-accent-dark:   #c9882a;
+
+  /* Neutral scale */
+  --clr-bg:            #f5f7f8;
+  --clr-surface:       #ffffff;
+  --clr-surface-2:     #edf2f4;
+  --clr-border:        #d8e3e7;
+  --clr-text:          #0d1b1e;
+  --clr-text-muted:    #5a737a;
+  --clr-text-light:    #8fa6ad;
+
+  /* Typography */
+  --font-sans:   'Inter', system-ui, sans-serif;
+  --font-telugu: 'Noto Sans Telugu', sans-serif;
+
+  /* Radius & Shadows */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   32px;
+  --shadow-sm:   0 1px 4px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:   0 4px 16px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.05);
+  --shadow-lg:   0 12px 40px rgba(0,0,0,.12), 0 4px 12px rgba(0,0,0,.07);
+  --shadow-card: 0 2px 8px rgba(10,95,110,.08), 0 1px 3px rgba(10,95,110,.05);
+
+  /* Transitions */
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --header-height: 68px;
+  --max-width: 1280px;
+}
+
+/* ---------- Dark Mode ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-primary:       #0f9ab5;
+    --clr-primary-dark:  #0a6d82;
+    --clr-primary-light: #17b8d8;
+    --clr-accent:        #f0b44a;
+    --clr-accent-dark:   #d99530;
+
+    --clr-bg:            #0c1a1e;
+    --clr-surface:       #132229;
+    --clr-surface-2:     #1a2e36;
+    --clr-border:        #213a44;
+    --clr-text:          #e8f4f7;
+    --clr-text-muted:    #8ab4be;
+    --clr-text-light:    #527a84;
+
+    --shadow-sm:   0 1px 4px rgba(0,0,0,.25);
+    --shadow-md:   0 4px 16px rgba(0,0,0,.35);
+    --shadow-lg:   0 12px 40px rgba(0,0,0,.45);
+    --shadow-card: 0 2px 8px rgba(0,0,0,.3);
+  }
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--clr-primary-dark);
+  border-radius: 3px;
+}
+
+/* ---------- Typography Utilities ---------- */
+.telugu {
+  font-family: var(--font-telugu);
+}
+
+/* ---------- Layout Utilities ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: all var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background var(--transition);
+}
+
+.btn:hover::after {
+  background: rgba(255,255,255,0.08);
+}
+
+.btn-primary {
+  background: var(--clr-primary);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(10,95,110,.25);
+}
+
+.btn-primary:hover {
+  background: var(--clr-primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(10,95,110,.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-accent {
+  background: var(--clr-accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(232,163,58,.3);
+}
+
+.btn-accent:hover {
+  background: var(--clr-accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(232,163,58,.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--clr-primary);
+  border: 2px solid var(--clr-primary);
+}
+
+.btn-outline:hover {
+  background: var(--clr-primary);
+  color: #fff;
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
+.btn-lg {
+  padding: 16px 36px;
+  font-size: 1rem;
+}
+
+/* ---------- Section headings ---------- */
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: var(--clr-text);
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--clr-text-muted);
+  margin-top: 10px;
+  max-width: 520px;
+}
+
+/* ---------- Wave divider ---------- */
+.wave {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  display: block;
+  width: 100%;
+}
+
+/* ---------- Focus visible ---------- */
+*:focus-visible {
+  outline: 3px solid var(--clr-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
